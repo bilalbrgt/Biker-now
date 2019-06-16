@@ -4,17 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Contatct;
 use App\Form\ContactType;
-use function Sodium\add;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-
-
-
 use Symfony\Component\Routing\Annotation\Route;
-
 use Symfony\Component\HttpFoundation\Request;
-
 class BlogController extends AbstractController
-
 
 {
     /**
@@ -35,16 +28,15 @@ class BlogController extends AbstractController
     {
         return $this->render('blog/home.html.twig');
     }
-
     /**
+     * @Route("/contact", name="contact")
+
      * Page pour envoyé un email de contact
      * @param Request $request
      * @param \Swift_Mailer $mailer
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    /**
-     * @Route("/contact", name="contact")
-     */
+
     public function contact(Request $request, \Swift_Mailer $mailer)
     {
         $form = $this->createForm(ContactType::class);
@@ -66,7 +58,7 @@ class BlogController extends AbstractController
 
         $message = new \Swift_Message();
         $message->setSubject($datas['name']); // Titre de l'email
-        $message->setFrom('noreply@monsite.fr'); // adresse du site
+        $message->setFrom($datas['email']); // adresse du site
         $message->setTo('admin@monsite.fr'); // adresse de la personne qui envoie l'email
         $message->setBody( // corps de l'email
             $this->renderView('blog/tableau.html.twig', [
