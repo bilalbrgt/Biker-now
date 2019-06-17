@@ -37,13 +37,16 @@ class BlogController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\Response
      */
 
-    public function contact(Request $request, \Swift_Mailer $mailer)
+    public function contact(Request $request,\Swift_Mailer $mailer)
     {
         $form = $this->createForm(ContactType::class);
         $form->handleRequest($request); // reception de la requete (apres clic sur bouton envoyé)
         if ($form->isSubmitted() && $form->isValid()) { // vérification de si formulaire envoyé
-            $datas = $form->getData(); // recuperation des données du formulaire
-            $this->sendMail($datas, $mailer); // appel de la methode "sendMail"
+
+            $data = $form->getData();
+            dump($data);
+            // recuperation des données du formulaire
+            $this->sendMail($data, $mailer); // appel de la methode "sendMail"
         }
 
         return $this->render('blog/contatct.html.twig', [
@@ -53,16 +56,16 @@ class BlogController extends AbstractController
 
 
 
-    public function sendMail($datas, \Swift_Mailer $mailer)
+    public function sendMail(Contatct  $datas, \Swift_Mailer $mailer)
     {
 
         $message = new \Swift_Message();
-        $message->setSubject($datas['name']); // Titre de l'email
-        $message->setFrom($datas['email']); // adresse du site
-        $message->setTo('admin@monsite.fr'); // adresse de la personne qui envoie l'email
+        $message->setSubject ($datas->getName()); // Titre de l'email
+        $message->setFrom( 'bouakimjawed@gmail.com'); // adresse du site
+        $message->setTo($datas->getEmail()); // adresse de la personne qui envoie l'email
         $message->setBody( // corps de l'email
             $this->renderView('blog/tableau.html.twig', [
-                'datas' => $datas
+           'datas'=> $datas
             ]),
             'text/html'
         );
