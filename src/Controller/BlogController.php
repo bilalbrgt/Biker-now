@@ -42,11 +42,13 @@ class BlogController extends AbstractController
         $form = $this->createForm(ContactType::class);
         $form->handleRequest($request); // reception de la requete (apres clic sur bouton envoyé)
         if ($form->isSubmitted() && $form->isValid()) { // vérification de si formulaire envoyé
+            $this ->addFlash('succes','votre, message a bien eatais envoyés');
 
-            $data = $form->getData();
-            dump($data);
+
+            return $this->redirectToRoute('contact');
+            $datas = $form->getData();
             // recuperation des données du formulaire
-            $this->sendMail($data, $mailer); // appel de la methode "sendMail"
+            $this->sendMail($datas, $mailer); // appel de la methode "sendMail"
         }
 
         return $this->render('blog/contatct.html.twig', [
@@ -62,7 +64,7 @@ class BlogController extends AbstractController
         $message = new \Swift_Message();
         $message->setSubject ($datas->getName()); // Titre de l'email
         $message->setFrom( 'bouakimjawed@gmail.com'); // adresse du site
-        $message->setTo($datas->getEmail()); // adresse de la personne qui envoie l'email
+        $message->setTo($datas->getEmail('boujemaouibilel@gmail.com')); // adresse de la personne qui envoie l'email
         $message->setBody( // corps de l'email
             $this->renderView('blog/tableau.html.twig', [
            'datas'=> $datas
