@@ -2,10 +2,10 @@
 
 {% block body %}
     <div id="bcontact">
-        <section class="contact">
-    <main class="container maps >
 
-        <h1> "class="row justify-content-center "   ></h1>
+    <div class="container" >
+
+        <h1 class="row justify-content-center">  </h1>
         {% for message in app.flashes('succes') %}
             <div class="alert alert -succes" >
                 {{ message }}
@@ -17,14 +17,15 @@
         </div>
         {% endif %}
 
-        {{ form_start(form) }}
 
-        {{ form_widget(form)}}
+
+        {{ form_start(form) }}
+    {{ form_widget(form) }}
         <input type="submit" id="button-blue" value="Envoyer" class="btn btn-lg btn-primary btn-block">
         {{ form_end (form)}}
-    </main>
-        </section>
-    </div>
+
+
+
 
 
 {% endblock %}
