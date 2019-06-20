@@ -7,23 +7,19 @@
     <div class="container" >
     <h1 class="row justify-content-center">  </h1>
 
-    {{ form(form) }}
+
 
         {% for message in app.flashes('succes') %}
-            <div class="alert alert -succes" >
+            <div class="alert alert-succes" >
                 {{ message }}
             </div>
         {% endfor %}
-        {% if not form.vars.valid %}
-        <div class="alert alert - danger">
-            Erreur veuillez remplir tous les champs
-        </div>
-        {% endif %}
+
         {{ form_start(form) }}
         {{ form_row(form.name,{'label':'Name','attr':{'placeholder':'votre nom '}}) }}
       {{ form_row(form.email,{'label':'Email','attr':{'placeholder': ' votre adresse email'}}) }}
       {{ form_row(form.message,{'label':'Message','attr':{'placeholder':'Veuillez saisir votre message'}}) }}
-    {{ form_widget(form) }}
+
         <input type="submit" id="" value="Envoyer" class="btn btn-lg btn-success btn-block">
         {{ form_end (form)}}
 
