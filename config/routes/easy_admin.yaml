@@ -2,5 +2,5 @@
 
 easy_admin_bundle:
     resource: '@EasyAdminBundle/Controller/EasyAdminController.php'
-    prefix: /secret
+    prefix: /admin
     type: annotation

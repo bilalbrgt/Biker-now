@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ReservationsRepository")
@@ -28,6 +30,7 @@ class Reservations
 
     /**
      * @ORM\Column(type="decimal", precision=10, scale=0)
+     * Assert/Length(min="10",message="votre message doit comporter 10 chiffres")
      */
     private $numero;
 
