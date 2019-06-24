@@ -4,8 +4,9 @@ namespace App\Controller;
 
 
 
-use App\Entity\Reservations;
-use App\Form\InscriType;
+
+use App\Entity\People;
+use App\Form\PeopleType;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,12 +20,12 @@ class FormulaireController extends AbstractController
      */
     public function reserver(Request $request,ObjectManager $manager)
     {
-        $Reservations = new Reservations();
+        $People = new People();
 
-        $form = $this->createForm(InscriType::class,$Reservations);
+        $form = $this->createForm(PeopleType::class,$People);
         $form->handleRequest($request); // reception de la requete (apres clic sur bouton envoyé)
         if ($form->isSubmitted()&& $form ->isValid()) {
-            $manager ->persist($Reservations);
+            $manager ->persist($People);
             $manager->flush();
             return $this->redirectToRoute('reservations');
         }
