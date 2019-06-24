@@ -2,12 +2,12 @@
 {% form_theme form 'bootstrap_4_layout.html.twig' %}
 
 {% block body %}
+
     <div id="pages4">
-    <div class="container">
 
+        <div class="container">
         <h1 class="row justify-content-center">  </h1>
-
-    {{ form_start(form) }}
+        {{ form_start(form) }}
 
     {{ form_row(form.Name,{'label':'Name','attr':{'placeholder':'votre nom '}}) }}
     {{ form_row(form.Email,{'label':'Email','attr':{'placeholder': ' votre adresse email'}}) }}
@@ -16,10 +16,15 @@
 
 
     <input type="submit" id="" value="Envoyer" class="btn btn-lg btn-success btn-block">
-    {{ form_end (form)}}
 
 
-</div>
+            {{ form_end (form)}}
+
+
+
+
+
+        </div>
 </div>
 
 
