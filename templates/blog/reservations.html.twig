@@ -2,11 +2,17 @@
 {% form_theme form 'bootstrap_4_layout.html.twig' %}
 
 {% block body %}
-
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
     <div id="pages4">
 
         <div class="container">
+            <h3 id="info">
+                le prix d' une réservations est de 25 euros par personnes a regler sur place
+            </h3>
         <h1 class="row justify-content-center">  </h1>
+            <br>
+
         {{ form_start(form) }}
 
     {{ form_row(form.Name,{'label':'Name','attr':{'placeholder':'votre nom '}}) }}

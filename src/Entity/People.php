@@ -35,7 +35,7 @@ class People
 
     /**
      * @ORM\Column(type="decimal", precision=10, scale=0)
-     * @Assert\Length(max="2",maxMessage="votre numero doit comporter 2 chiffres")
+     * @Assert\Length(min="2",minMessage="votre numero doit comporter 2 chiffres")
 
      */
     private $Age;

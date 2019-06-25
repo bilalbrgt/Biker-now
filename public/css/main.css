@@ -357,3 +357,10 @@ h2
 
 
 }
+#info
+{position: absolute;
+    font-family: 'Cabin', Helvetica, Arial, sans-serif;
+    line-height: 15%;
+        top: 95px;
+    color: #353b41;
+}
