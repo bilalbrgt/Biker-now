@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{% block body %}
+    <div class="container" >
+    <h1 class="row justify-content-center">  </h1>
+
+    {{ form_start(form) }}
+
+    {{ form_row(form.username)}}
+    {{ form_row(form.email)}}
+    {{ form_row(form.plainPassword)}}
+
+
+
+<input type="submit">
+
+
+{{ form_end (form)}}
+{% endblock %}
