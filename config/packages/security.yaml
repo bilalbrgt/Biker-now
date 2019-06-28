@@ -4,14 +4,16 @@ security:
         algorithm:  sha512
   providers:
     user_db:
-      entity: { class: App\Entity\User, property: username }
+      entity:
+          class: App\Entity\User
+          property: email
   firewalls:
     dev:
       pattern: ^/(_(profiler|wdt)|css|images|js)/
       security: false
     main:
-      provider: user_db
       anonymous: ~
+      provider: user_db
       form_login:
         login_path: login
         check_path: login
