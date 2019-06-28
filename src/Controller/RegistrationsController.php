@@ -18,24 +18,16 @@ class RegistrationsController extends AbstractController
     /**
      * @Route("/register", name="user_registration")
      */
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder,ObjectManager $manager)
+    public function register(Request $request,ObjectManager $manager,UserPasswordEncoderInterface $encoder)
     {
         $User = new User();
         $form = $this->createForm(UserType::class, $User);
-
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
-
-            // 3) Encode the password (you could also do this via Doctrine listener)
-            $password = $passwordEncoder->encodePassword($User, $User->getPlainPassword());
-            $User->setPassword($password);
-
-
+            $hash =$encoder->encodePassword($User, $User->getPassword());
+            $User->setPassword($hash);
             $manager ->persist($User);
             $manager->flush();
-
-
 
             return $this->redirectToRoute('user_registration');
         }

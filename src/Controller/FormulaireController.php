@@ -1,9 +1,5 @@
 <?php
-
 namespace App\Controller;
-
-
-
 
 use App\Entity\People;
 use App\Form\PeopleType;

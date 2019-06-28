@@ -1,116 +1,91 @@
 <?php
+
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
- * @ORM\Entity
- * @UniqueEntity(fields="email", message="Email already taken")
- * @UniqueEntity(fields="username", message="Username already taken")
+ * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
 class User implements UserInterface
 {
     /**
-     * @ORM\Id
+     * @ORM\Id()
+     * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=64, unique=true)
-     * @Assert\NotBlank()
-     * @Assert\Email()
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Username;
+
+    /**
+     * @ORM\Column(type="string", length=255)
      */
     private $email;
 
     /**
-     * @ORM\Column(type="string", length=64, unique=true)
-     * @Assert\NotBlank()
-     */
-    private $username;
-
-    /**
-     * @Assert\NotBlank()
-     * @Assert\Length(max=4096)
-     */
-    private $plainPassword;
-
-    /**
-     * The below length depends on the "algorithm" you use for encoding
-     * the password, but this works well with bcrypt.
-     *
-     * @ORM\Column(type="string", length=64)
+     * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min="8",minMessage="votre numero doit comporter 8 chiffres")
+      * @Assert\EqualTo(propertyPath="confirm_password",message="vos mot de passe ne sont pas identiques")
      */
     private $password;
+    public  $confirm_password;
 
-    /**
-     * @ORM\Column(type="array")
-     */
-    private $roles;
-
-    public function __construct() {
-        $this->roles = array('ROLE_USER');
+    public function getId(): ?int
+    {
+        return $this->id;
     }
 
-    // other properties and methods
+    public function getUsername(): ?string
+    {
+        return $this->Username;
+    }
 
-    public function getEmail()
+    public function setUsername(string $Username): self
+    {
+        $this->Username = $Username;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
     {
         return $this->email;
     }
 
-    public function setEmail($email)
+    public function setEmail(string $email): self
     {
         $this->email = $email;
+
+        return $this;
     }
 
-    public function getUsername()
-    {
-        return $this->username;
-    }
-
-    public function setUsername($username)
-    {
-        $this->username = $username;
-    }
-
-    public function getPlainPassword()
-    {
-        return $this->plainPassword;
-    }
-
-    public function setPlainPassword($password)
-    {
-        $this->plainPassword = $password;
-    }
-
-    public function getPassword()
+    public function getPassword(): ?string
     {
         return $this->password;
     }
 
-    public function setPassword($password)
+    public function setPassword(string $password): self
     {
         $this->password = $password;
-    }
 
+        return $this;
+    }
+    public  function eraseCredentials()
+    {
+    }
     public function getSalt()
     {
-        // The bcrypt and argon2i algorithms don't require a separate salt.
-        // You *may* need a real salt if you choose a different encoder.
-        return null;
+        // TODO: Implement getSalt() method.
     }
-
     public function getRoles()
     {
-        return $this->roles;
-    }
-
-    public function eraseCredentials()
-    {
+        return ['ROLE_USER'];
     }
 }
