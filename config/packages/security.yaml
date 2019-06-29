@@ -1,12 +1,20 @@
 security:
   encoders:
     App\Entity\User:
-        algorithm:  sha512
+        algorithm: argon2i
+
+
   providers:
     user_db:
       entity:
           class: App\Entity\User
           property: email
+    # used to reload user from session & other features (e.g. switch_user)
+    app_user_provider:
+        entity:
+            class: App\Entity\User
+            property: email
+    # used to reload user from session & other features (e.g. switch_user)
   firewalls:
     dev:
       pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -17,6 +25,11 @@ security:
       form_login:
         login_path: login
         check_path: login
+      guard:
+          authenticators:
+              - App\Security\LoginFormAuthenticator
+              - App\Security\SecurityControllerAuthenticator
+          entry_point: App\Security\LoginFormAuthenticator
 
   access_control:
    - { path: ^/admin, roles: ROLE_ADMIN }
