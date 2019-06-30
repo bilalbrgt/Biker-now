@@ -9,11 +9,11 @@ use Symfony\Component\HttpFoundation\Request;
 class BlogController extends AbstractController
 {
     /**
-     * @Route("/blog", name="blog")
+     * @Route("/Initiations", name="Initiations")
      */
     public function index()
     {
-        return $this->render('blog/index.html.twig', [
+        return $this->render('blog/Initiations.html.twig', [
             'controller_name' => 'BlogController',
         ]);
     }
