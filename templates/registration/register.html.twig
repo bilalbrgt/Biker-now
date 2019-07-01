@@ -1,5 +1,8 @@
 {% extends 'base.html.twig' %}
 {% form_theme form 'bootstrap_4_layout.html.twig' %}
+{% block title %}
+
+{% endblock %}
 {% block body %}
 
     <div  id="register">
@@ -13,7 +16,7 @@
 
     {{ form_row(form.email)}}
     {{ form_row(form.password)}}
-{{ form_row(form.confirm_password) }}
+    {{ form_row(form.confirm_password)}}
 
     <input type="submit" id="" value="Envoyer" class="btn btn-lg btn-success btn-block">
     {{ form_end (form)}}

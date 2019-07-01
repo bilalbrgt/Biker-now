@@ -32,8 +32,7 @@ class User implements UserInterface
      * @ORM\Column(type="string")
      */
     private $password;
-    public $confirm_password;
-
+public  $confirm_password;
     public function getId(): ?int
     {
         return $this->id;

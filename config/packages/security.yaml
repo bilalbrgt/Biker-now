@@ -4,6 +4,8 @@ security:
         algorithm: argon2i
 
 
+
+
   providers:
     user_db:
       entity:
@@ -14,6 +16,8 @@ security:
         entity:
             class: App\Entity\User
             property: email
+    # used to reload user from session & other features (e.g. switch_user)
+    # used to reload user from session & other features (e.g. switch_user)
     # used to reload user from session & other features (e.g. switch_user)
   firewalls:
     dev:
@@ -28,8 +32,6 @@ security:
       guard:
           authenticators:
               - App\Security\LoginFormAuthenticator
-              - App\Security\SecurityControllerAuthenticator
-          entry_point: App\Security\LoginFormAuthenticator
 
   access_control:
    - { path: ^/admin, roles: ROLE_ADMIN }
