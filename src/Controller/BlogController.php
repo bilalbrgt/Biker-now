@@ -24,6 +24,12 @@ class BlogController extends AbstractController
     public function home()
     {
         return $this->render('blog/home.html.twig');
+    }  /**
+     * @Route("/legales", name="legales")
+     */
+    public function legales()
+    {
+        return $this->render('blog/legales.html.twig');
     }
 
     /**
@@ -33,6 +39,7 @@ class BlogController extends AbstractController
      * @param \Swift_Mailer $mailer
      * @return \Symfony\Component\HttpFoundation\Response
      */
+
     public function contact(Request $request, \Swift_Mailer $mailer)
     {
         $form = $this->createForm(ContactType::class);

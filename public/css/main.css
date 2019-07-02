@@ -299,3 +299,25 @@ color: black;
 {
     color: orange;
 }
+
+footer {
+    background-color: black;
+    padding: 2%;
+    text-align: center;
+    color: white;
+
+
+}
+
+.fef{
+display: flex;
+}
+.mappp
+{
+    margin-left: 2%;
+}
+
+.tarifs
+{
+    padding-top: 10%;
+}

@@ -41,7 +41,7 @@ class People
     private $Age;
 
     /**
-     * @ORM\Column(type="decimal", precision=10, scale=0)
+     * @ORM\Column(type="decimal", precision=10)
      * @Assert\Length(min="10",minMessage="votre numero doit comporter 10 chiffres")
 
      */
