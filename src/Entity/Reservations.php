@@ -31,6 +31,7 @@ class Reservations
     /**
      * @ORM\Column(type="decimal", precision=10, scale=0)
      * Assert/Length(min="10",message="votre message doit comporter 10 chiffres")
+     *@Assert\PositiveOrZero
      */
     private $numero;
 
