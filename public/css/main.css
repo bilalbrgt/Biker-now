@@ -8,7 +8,7 @@
     height: 53px;
     top: 1px;
     z-index: 3;
-    margin: 0 5% 0 -39%;
+    margin: 5px 5% 0 0%;
 }
 
 
@@ -25,7 +25,7 @@ ul li {
 
 .bg-dark
 {
-    background-color: transparent !important;
+    background-color: transparent!important;
 }
 /************** fin de la modifications des items **********************/
 
@@ -136,7 +136,11 @@ textarea:focus {
 /* MODIFICATIONS COULEUR LIENS*/
 .nav-link:hover
 {
-    color: orangered!important;
+    color: white!important;
+}
+.nav-link
+{
+    color: orange!important;
 }
 /* MODIFICATIONS DE LA PAGE D ACCEUIL */
 #home
@@ -321,3 +325,7 @@ display: flex;
 {
     padding-top: 10%;
 }
+ .sr-only
+ {
+     color: blue;
+ }
