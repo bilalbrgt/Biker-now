@@ -193,17 +193,8 @@ h2
 
 /* media queries   la responsivite de la page contact pour la maps et le formulaire de contact */
 
-@media screen and (max-width:768px){
-    .contact {
-        flex-direction: column;
 
-    }
-    form {width: 80%;}
-    #form-div, .maps {
-        width: 95%;
-        margin: 25% auto;
-    }
-}
+
 /* fin de la media querie*/
 
 
@@ -323,9 +314,40 @@ display: flex;
 
 .tarifs
 {
-    padding-top: 10%;
+    font-family: 'Lobster Two', cursive;
+font-size: 30px;
+    text-align: center;
+    padding-top: 2%;
 }
- .sr-only
+
+ .text1
  {
-     color: blue;
+     text-align: center;
+     font-family: 'Garamond', arial;
+     font-size: 48px;
+     text-shadow: 4px 4px 4px #aaa;
+
  }
+ p
+ {
+     text-align: center;
+     font-family:serif;
+
+ }
+ .de
+ {
+     color:black;
+
+ }
+
+
+@media screen and (max-width:500px) {
+    .mappp {
+        flex-direction: column;
+        width: 95%;
+        margin: 2% auto;
+        top: 30px;
+
+
+    }
+}

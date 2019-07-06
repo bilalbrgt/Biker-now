@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
+    <link href="http://fr.allfont.net/allfont.css?fonts=garamond" rel="stylesheet" type="text/css" />
 
 
 {% endblock %}
@@ -8,7 +9,7 @@
 {% block body %}
     <div>
 
-        <div id="carouselExampleIndicators" class="carousel slide" data-interval="carousel">
+        <div id="carouselExampleIndicators" class="carousel slide" data-fide="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -37,26 +38,28 @@
 
             <br>
 
-            <div class="container">
-            <p>
-                VOTRE ENFANT EST AGÉ DE 5 ET PLUS  ET SOUHAITE DÉCOUVRIR LE MOTOCROSS, NOTRE ASSOCIATION PROPOSE DES SÉANCES D’APPRENTISSAGE À LA CONDUITE AVEC LOCATION DE MOTO ET ENCADREMENT D’UN MONITEUR FÉDÉRAL.
 
+            <div class="container">
+                <h1 class="de"> Découvre vite  </h1>
+            <p>
+                VOTRE ENFANT EST AGÉ DE 5 ET PLUS  ET SOUHAITE DÉCOUVRIR LE MOTOCROSS, NOTRE Club lui propose DES Séances D'apprentisage de Conduite  de Moto sous l' Encadrements D’UN MONITEUR FÉDÉRAL.
+                  <br>
                 Le club fournit une moto adaptée à la taille de l’enfant et les équipements de protection (casque, gants, pare-pierre, genouillères, coudières et bottes), le stagiaire doit se présenter avec un pantalon et maillot à manches longues.
 
                 Pas de formule annuelle, ces découvertes permettent l’accès au motocross sans l’investissement matériel du départ (moto, équipements, licence, remorque…)
-
+              <br>
+                <br>
                 JOURS DE COURS D’INITATION
                 – Mercredi : 14h30 à 16h30.
 
                 – Samedi  : 14h30 à 16h30
 
                 – dimanche 11h à 13h
-
-                Contacter Aurélien par sms en indiquant le prénom, l’âge, la taille, la pointure de l’enfant et la date souhaitée pour les prises de rendez-vous.
-
+                   <br>
 
 
-                ECOLE D’INITIATION FERMÉE AUX MOIS D’AOUT, DÉCEMBRE, JANVIER, FÉVRIER.  <a href="{{ path('reservations') }}">Reserve ici</a>
+
+                  Pour pouvoir pratiquer veuillez réserver  <a href="{{ path('reservations') }}"> ici</a>
             </p>
 
             </div>

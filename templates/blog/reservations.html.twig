@@ -4,16 +4,24 @@
 {% block body %}
     <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Lobster+Two&display=swap" rel="stylesheet">
+
     <div id="pages4">
 
         <div class="container">
+            <div class="taro">
             <p class="tarifs">
                 TARIFS
+                <br>
                 - 50 €   la séance pour les Adultes
+                <br>
                 - 30 €   la séance pour les Enfants
+                <br>
                 le paiement s'effectura sur place .
+                <br>
             </p>
 
+            <div class="topp">
         {{ form_start(form) }}
 
     {{ form_row(form.Name,{'label':'Name','attr':{'placeholder':'votre nom '}}) }}
@@ -26,8 +34,8 @@
 
 
             {{ form_end (form)}}
-
-
+            </div>
+            </div>
 
 
 

@@ -29,9 +29,9 @@ class Reservations
     private $email;
 
     /**
-     * @ORM\Column(type="decimal", precision=10, scale=0)
+     * @ORM\Column(type="float")
      * Assert/Length(min="10",message="votre message doit comporter 10 chiffres")
-     *@Assert\PositiveOrZero
+     *
      */
     private $numero;
 
