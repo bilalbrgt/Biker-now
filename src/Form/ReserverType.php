@@ -2,27 +2,27 @@
 
 namespace App\Form;
 
-use App\Entity\People;
+use App\Entity\Reserver;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class PeopleType extends AbstractType
+class ReserverType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('Name')
-            ->add('Email')
-            ->add('Age')
-            ->add('Numero')
+            ->add('name')
+            ->add('email')
+            ->add('age')
+            ->add('date')
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => People::class,
+            'data_class' => Reserver::class,
         ]);
     }
 }

@@ -4,12 +4,16 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\ReservationsRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\ReserverRepository")
+ *  * @UniqueEntity(
+ *     fields={"email"},
+ *     message="l'adreese Email a deja etais utilisés"
+ * )
  */
-class Reservations
+class Reserver
 {
     /**
      * @ORM\Id()
@@ -25,15 +29,20 @@ class Reservations
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Email()
+
      */
     private $email;
 
     /**
-     * @ORM\Column(type="float")
-     * Assert/Length(min="10",message="votre message doit comporter 10 chiffres")
-     *
+     * @ORM\Column(type="integer")
      */
-    private $numero;
+    private $age;
+
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $date;
 
     public function getId(): ?int
     {
@@ -64,14 +73,26 @@ class Reservations
         return $this;
     }
 
-    public function getNumero()
+    public function getAge(): ?int
     {
-        return $this->numero;
+        return $this->age;
     }
 
-    public function setNumero($numero): self
+    public function setAge(int $age): self
     {
-        $this->numero = $numero;
+        $this->age = $age;
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): self
+    {
+        $this->date = $date;
 
         return $this;
     }
